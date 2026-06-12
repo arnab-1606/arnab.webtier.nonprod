@@ -9,7 +9,7 @@ runcmd:
 
 # Pull image from Docker Hub
 
-  - docker pull user/webapp:1.0
+  - docker pull user/webtier:1.0
 
 # Run container
-  - docker run -d -p 80:80 --name webapp user/webapp:1.0
+  - docker run -d -p 80:80 --name webapp user/webtier:1.0
