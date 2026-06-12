@@ -108,6 +108,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
   }
 
   custom_data = base64encode(file("${path.module}/cloud-init.yaml"))
+# custom_data = base64encode(file("${path.module}/cloud-init-container.yaml"))   // we need to use this for container app.currently commented
   health_probe_id = azurerm_lb_probe.probe.id
   upgrade_mode    = "Automatic"
   automatic_instance_repair {
