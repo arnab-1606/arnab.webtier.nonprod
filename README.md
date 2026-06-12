@@ -27,23 +27,23 @@ dockerfile example
 
 From nginx:latest
 
-# below command will delete current content
+#below command will delete current content
 RUN rm -rf /usr/share/nginx/html/*    
 
 #below  will add the html page
 RUN echo "<h1>Hello!!</h1>" > /usr/share/nginx/html/index.html
 
-# Allow port 80
+#Allow port 80
 Expose 80
 
 #############################################
 
-# To build a docker image we can sue docker build command
+#To build a docker image we can sue docker build command
 
 docker build -t user/webtier:1.0 .
 #############################################
 
-# to push to docker hub we can use docker push command
+#to push to docker hub we can use docker push command
 
 docker login
 docker push user/webtier:1.0
