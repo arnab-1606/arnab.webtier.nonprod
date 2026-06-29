@@ -1,7 +1,7 @@
 // Create Resource group
 
 resource "azurerm_resource_group" "rg" {
-  name     = "rg-webtier"
+  name     = "rg-webtier-test"
   location = var.location
 }
 
@@ -9,7 +9,7 @@ resource "azurerm_resource_group" "rg" {
 // Create public IP
 
 resource "azurerm_public_ip" "pip_lb" {
-  name                = "pip-lb"
+  name                = "pip-lb-test"
   resource_group_name = azurerm_resource_group.rg.name
   location            = var.location
   allocation_method   = "Static"
