@@ -70,22 +70,22 @@ jobs:
 
       # Initialize Terraform
       - name: Terraform Init
-        working-directory: environments/non-prod
+        working-directory: ./environments/non-prod
         run: terraform init
 
       # Check formatting
       - name: Terraform Format
-        working-directory: environments/non-prod
+        working-directory: ./environments/non-prod
         run: terraform fmt -check
 
       # Validate configuration
       - name: Terraform Validate
-        working-directory: environments/non-prod
+        working-directory: ./environments/non-prod
         run: terraform validate
 
       # Create execution plan
       - name: Terraform Plan
-        working-directory: environments/non-prod
+        working-directory: ./environments/non-prod
         run: terraform plan -input=false
 
       # Apply changes on push to main
