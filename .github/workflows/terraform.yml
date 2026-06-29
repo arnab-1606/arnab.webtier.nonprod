@@ -75,21 +75,21 @@ jobs:
 
       # Check formatting
       - name: Terraform Format
-        working-directory: ./environments/non-prod
+        working-directory: ${{ github.workspace }}/environments/non-prod
         run: terraform fmt -check
 
       # Validate configuration
       - name: Terraform Validate
-        working-directory: ./environments/non-prod
+        working-directory: ${{ github.workspace }}/environments/non-prod
         run: terraform validate
 
       # Create execution plan
       - name: Terraform Plan
-        working-directory: ./environments/non-prod
+        working-directory: ${{ github.workspace }}/environments/non-prod
         run: terraform plan -input=false
 
       # Apply changes on push to main
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        working-directory: environments/non-prod
+        working-directory: ${{ github.workspace }}/environments/non-prod
         run: terraform apply -auto-approve -input=false
