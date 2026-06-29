@@ -73,11 +73,6 @@ jobs:
         working-directory: ./environments/non-prod
         run: terraform init
 
-      # Check formatting
-      - name: Terraform Format
-        working-directory: ${{ github.workspace }}/environments/non-prod
-        run: terraform fmt -check || true
-
       # Validate configuration
       - name: Terraform Validate
         working-directory: ${{ github.workspace }}/environments/non-prod
